@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* ---------- Design tokens ---------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-950: #060709; /* page */
+  --color-ink-900: #0b0d12; /* panels */
+  --color-ink-800: #10131a; /* cards */
+  --color-ink-700: #181c26; /* hover / chips */
+  --color-line: #1e2330; /* hairlines */
+  --color-line-strong: #2b3245;
+  --color-accent: #818cf8; /* indigo-400, main accent */
+  --color-accent-2: #67e8f9; /* cyan-300, used sparingly */
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ink-950 font-sans text-slate-400 antialiased; overflow-x: hidden; }
+  h1, h2, h3, h4 { @apply font-display text-slate-50; letter-spacing: -0.025em; }
+  :focus-visible { outline: 2px solid var(--color-accent-2); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: color-mix(in srgb, var(--color-accent) 40%, transparent); color: white; }
+}
+
+@layer components {
+  .page-container { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .page-section { @apply py-14 sm:py-20; }
+
+  .page-title { @apply text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl; }
+  .section-title { @apply text-3xl font-semibold leading-tight sm:text-4xl; }
+  .card-title { @apply text-lg font-semibold leading-snug; }
+  .meta-text { @apply text-sm text-slate-500; }
+  .gradient-text { @apply bg-gradient-to-r from-indigo-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent; }
+
+  /* Faint engineering grid used behind hero areas */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 0%, #000 30%, transparent 100%);
+  }
+
+  .btn { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition duration-200 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply bg-slate-50 text-ink-950 hover:bg-white hover:shadow-[0_0_0_4px_rgb(129_140_248/0.25)]; }
+  .btn-secondary { @apply border border-line-strong bg-transparent text-slate-100 hover:border-indigo-300/60 hover:bg-ink-800; }
+  .btn-ghost { @apply px-3 text-slate-300 hover:text-white; }
+
+  .card { @apply rounded-xl border border-line bg-ink-900 p-6; }
+  .card-hover { @apply transition duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:bg-ink-800; }
+  .badge { @apply inline-flex items-center rounded-md border border-line-strong bg-ink-800 px-2.5 py-1 text-xs font-medium text-slate-300; }
+  .status-badge { @apply inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200; }
+  .icon-tile { @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line-strong bg-ink-800 text-indigo-300; }
+
+  .input { @apply w-full rounded-lg border border-line-strong bg-ink-950 px-4 py-3 text-sm text-white placeholder:text-slate-600 transition-colors focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-300/30; }
+  .input-error { @apply border-red-400/80 focus:border-red-400 focus:ring-red-400/30; }
+  .label { @apply mb-1.5 block text-sm font-medium text-slate-200; }
+  .field-error { @apply mt-1.5 text-sm text-red-300; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---------- Motion & background ---------- */
+.aurora { position: absolute; border-radius: 9999px; filter: blur(100px); will-change: transform; }
+.aurora-a { top: -8%; left: -6%; width: 38rem; height: 38rem; background: rgb(99 102 241 / 0.28); animation: drift-a 28s ease-in-out infinite alternate; }
+.aurora-b { top: 30%; right: -10%; width: 30rem; height: 30rem; background: rgb(34 211 238 / 0.14); animation: drift-b 34s ease-in-out infinite alternate; }
+.aurora-c { bottom: -12%; left: 25%; width: 34rem; height: 34rem; background: rgb(139 92 246 / 0.16); animation: drift-c 40s ease-in-out infinite alternate; }
+@keyframes drift-a { to { transform: translate(18vw, 14vh) scale(1.15); } }
+@keyframes drift-b { to { transform: translate(-16vw, 18vh) scale(0.9); } }
+@keyframes drift-c { to { transform: translate(14vw, -16vh) scale(1.2); } }
+
+.float-soft { animation: float-soft 7s ease-in-out infinite; }
+@keyframes float-soft { 50% { transform: translateY(-10px); } }
+
+.marquee-mask { mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { animation: marquee 50s linear infinite; }
+.marquee-mask:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: -0.15em; background: var(--color-accent-2); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Scroll reveal (classes toggled in MainLayout) */
+.reveal-pending { opacity: 0; }
+.reveal-in { animation: rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+
+/* Cursor spotlight on cards */
+.card { position: relative; }
+.card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.3s;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgb(129 140 248 / 0.13), transparent 60%);
+}
+.card:hover::after { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora, .float-soft, .marquee-track, .caret, .reveal-in { animation: none !important; }
+  .reveal-pending { opacity: 1; }
+}
