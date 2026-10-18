@@ -19,7 +19,7 @@ export const ongoingLearning = [
     details: [
       { label: "Language", value: "C++" },
       { label: "Learning resource", value: "CodeHelp by Love Babbar" },
-      { label: "Focus", value: "Programming fundamentals, loops, patterns, arrays, and problem-solving" },
+     { label: "Focus", value: "Data Structures and Algorithms, time and space complexity, arrays, strings, linked lists, stacks, queues, searching, sorting, recursion, and algorithmic problem-solving using C++" },
     ],
   },
   {

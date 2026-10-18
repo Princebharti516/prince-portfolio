@@ -25,13 +25,6 @@ export const certifications = [
     file: "/certificates/aicte-eduskills.pdf",
     available: true,
   },
-  {
-    // Listed on your resume. Add the PDF to /public/certificates, then set file + available: true to enable viewing.
-    id: "stp-web-diploma",
-    title: "Web Development Diploma Certificate",
-    issuer: "STP Computer Education",
-    date: "2023 – 2024",
-    file: "",
-    available: false,
-  },
+  
 ];
+np
