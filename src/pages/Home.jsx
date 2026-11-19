@@ -21,8 +21,8 @@ const fade = {
 
 export default function Home() {
   usePageMeta(
-    "Prince Kumar | IT Student & MERN Stack Developer",
-    "Explore Prince Kumar's developer portfolio, frontend project, technical skills, learning journey, and programming certifications."
+    "Prince Kumar | Bharath University IT Student Portfolio",
+    "Explore Prince Kumar’s portfolio. B.Tech Information Technology student at Bharath University (BIHER), Chennai, building React projects, learning the MERN stack, and practising DSA in C++."
   );
   const featured = projects[0];
 
