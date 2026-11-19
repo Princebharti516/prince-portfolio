@@ -18,7 +18,9 @@ function renderPage(path, label) {
   let html = template;
   if (label) {
     const title = label + " | Prince Kumar";
-    const description = "Explore the " + label.toLowerCase() + " page of Prince Kumar's developer portfolio.";
+    const description = path === "/about"
+      ? "Meet Prince Kumar, a B.Tech IT student at Bharath University (BIHER), Chennai. Learn about his education and interests in React, web development, and DSA in C++."
+      : "Explore the " + label.toLowerCase() + " page of Prince Kumar's developer portfolio.";
     html = html
       .replace(/<title>[^<]*<\/title>/, "<title>" + title + "</title>")
       .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, '<meta name="description" content="' + description + '" />')
