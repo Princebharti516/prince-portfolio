@@ -23,14 +23,14 @@ const interests = [
 export default function About() {
   usePageMeta(
     "About | Prince Kumar",
-    "Learn about Prince Kumar, a B.Tech IT student at BIHER Chennai learning web development, the MERN stack, and DSA in C++."
+    "Meet Prince Kumar, a B.Tech IT student at Bharath University (BIHER), Chennai. Learn about his education and interests in React, web development, and DSA in C++."
   );
 
   return (
     <>
       <PageHeader
         title="About Me"
-        subtitle="An IT student learning through programming, experimentation, and practical web development."
+        subtitle="I’m Prince Kumar, a B.Tech Information Technology student at Bharath University (BIHER) in Chennai."
       />
 
       <section className="page-container page-section">
