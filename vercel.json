@@ -1,3 +1,28 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/pages/about.html"
+    },
+    {
+      "source": "/skills",
+      "destination": "/pages/skills.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/pages/projects.html"
+    },
+    {
+      "source": "/experience",
+      "destination": "/pages/experience.html"
+    },
+    {
+      "source": "/certifications",
+      "destination": "/pages/certifications.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/pages/contact.html"
+    }
+  ]
 }
